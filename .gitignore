@@ -34,18 +34,6 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
-
-# Entity Framework
-*.edmx.diagram
-*.edmx.sql
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
 # Node.js
 node_modules/
 npm-debug.log*
