@@ -1,0 +1,31 @@
+{
+  "name": "vibecoding-fullstack",
+  "version": "1.0.0",
+  "description": "Full-stack application with React Native client and .NET Core server",
+  "scripts": {
+    "install:client": "cd Client && npm install",
+    "install:server": "cd Server && dotnet restore",
+    "install:all": "npm run install:server && npm run install:client",
+    "dev:server": "cd Server && dotnet run",
+    "dev:client": "cd Client && npx expo start",
+    "build:server": "cd Server && dotnet build",
+    "build:client": "cd Client && npx expo export",
+    "test:server": "cd Server && dotnet test",
+    "clean:server": "cd Server && dotnet clean",
+    "clean:client": "cd Client && rm -rf node_modules",
+    "clean:all": "npm run clean:server && npm run clean:client"
+  },
+  "keywords": [
+    "react-native",
+    "dotnet",
+    "mobile",
+    "api",
+    "typescript",
+    "expo"
+  ],
+  "author": "VibeCoding Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

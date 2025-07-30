@@ -1,0 +1,3 @@
+@Server_HostAddress = http://localhost:5210
+
+# Brainstorming API endpoints can be tested here
