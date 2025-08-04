@@ -1,15 +1,22 @@
-# BrainStorm Pro - AI-Powered Collaborative Brainstorming Platform
+# VibeCoding - Collaborative Platform with Authentication
 
-A full-stack brainstorming platform with React web client and .NET Core 8 Web API server, featuring AI-generated ideas, real-time collaboration, and democratic voting systems.
+A full-stack platform with React Native mobile app and .NET Core 8 Web API server, featuring user authentication, brainstorming sessions, and real-time collaboration.
 
 ## 🚀 Features
+
+### Authentication & Security
+- **User Registration**: Create new user accounts with email validation
+- **User Login**: Secure login with JWT token authentication
+- **Password Security**: BCrypt password hashing
+- **Token Management**: Secure token storage and validation
+- **Protected Routes**: Authentication-required endpoints
 
 ### Core Functionality
 - **AI-Powered Ideation**: Generate topic-specific ideas using mock AI templates
 - **Democratic Voting**: Upvote/downvote ideas with real-time ranking
 - **Session Management**: Create, save, and organize brainstorming sessions
 - **Custom Ideas**: Add your own ideas to any session
-- **Mobile-Optimized**: Responsive design for all devices
+- **Mobile-Optimized**: React Native app with modern UI
 - **Real-time Updates**: Live collaboration features (foundation ready)
 
 ### Technical Features
@@ -23,7 +30,16 @@ A full-stack brainstorming platform with React web client and .NET Core 8 Web AP
 
 ```
 VibeCoding/
-├── Client/                 # React Native mobile app (legacy)
+├── Client/                 # React Native mobile app with authentication
+│   ├── components/         # Authentication & UI components
+│   │   ├── AuthScreen.tsx     # Main authentication wrapper
+│   │   ├── LoginScreen.tsx    # User login interface
+│   │   ├── RegisterScreen.tsx # User registration interface
+│   │   └── HomeScreen.tsx     # Main app content (authenticated)
+│   ├── contexts/          # React contexts
+│   │   └── AuthContext.tsx    # Authentication state management
+│   ├── App.tsx            # Main app entry point
+│   └── package.json       # Mobile app dependencies
 ├── ClientWeb/             # React web app (MAIN BRAINSTORMING CLIENT)
 │   ├── src/               # Source code
 │   │   ├── App.tsx        # Main brainstorming interface
@@ -31,33 +47,48 @@ VibeCoding/
 │   │   └── index.tsx      # Entry point
 │   ├── public/            # Static assets
 │   └── package.json       # Web dependencies
-├── Server/                # .NET Core 8 Web API
+├── Server/                # .NET Core 8 Web API with Authentication
 │   ├── Controllers/       
-│   │   └── BrainstormingController.cs  # Main brainstorming API
+│   │   ├── AuthController.cs          # Authentication endpoints
+│   │   └── BrainstormingController.cs # Main brainstorming API
 │   ├── Models/           
+│   │   ├── User.cs                    # User authentication models
 │   │   └── BrainstormingIdea.cs       # Brainstorming data models & DTOs
 │   ├── Repositories/     
+│   │   ├── IUserRepository.cs         # User data interface
+│   │   ├── JsonFileUserRepository.cs  # JSON-based user storage
 │   │   └── BrainstormingRepository.cs # Brainstorming data access
 │   ├── Services/         
+│   │   ├── IAuthService.cs            # Authentication service interface
+│   │   ├── AuthService.cs             # Authentication business logic
 │   │   └── BrainstormingService.cs    # Brainstorming business logic
-│   ├── Program.cs        # Application configuration
-│   └── test-brainstorming-api.ps1     # API testing script
+│   ├── Data/Json/        # JSON file storage
+│   │   ├── users.json                 # User data storage
+│   │   ├── ideas.json                 # Brainstorming ideas storage
+│   │   └── sessions.json              # Session data storage
+│   ├── Program.cs        # Application configuration with JWT
+│   ├── Server.http       # API testing endpoints
+│   └── test-auth-api.ps1 # Authentication API testing script
+├── test-auth-api.ps1     # Complete authentication testing
 └── README.md             # This file
 ```
 
 ## Technologies Used
 
-### Frontend (React Web Client)
-- **React 18**: Modern web framework with hooks
+### Frontend (React Native Mobile App)
+- **React Native**: Cross-platform mobile development
 - **TypeScript**: Type-safe JavaScript development
-- **CSS3**: Modern styling with glassmorphism effects
-- **Fetch API**: HTTP client for API communication
-- **Responsive Design**: Mobile-first approach
+- **Expo**: Development toolchain and runtime
+- **React Navigation**: Navigation between screens
+- **Secure Store**: Encrypted token storage
+- **Context API**: State management for authentication
+- **Axios**: HTTP client for API communication
 
 ### Backend (.NET Core 8 API)
 - **.NET Core 8**: Latest .NET framework
-- **Entity Framework Core**: ORM for database operations
-- **SQLite**: Lightweight, file-based database
+- **JWT Authentication**: JSON Web Token-based auth
+- **BCrypt**: Secure password hashing
+- **JSON File Storage**: Lightweight data persistence
 - **Swagger/OpenAPI**: API documentation and testing
 - **Repository Pattern**: Clean architecture design
 - **Dependency Injection**: Built-in IoC container
@@ -94,8 +125,21 @@ VibeCoding/
    cd Server
    dotnet run
    ```
+   
+3. **Test authentication API** (optional but recommended):
+   ```powershell
+   # In a new terminal, test the auth endpoints
+   .\test-auth-api.ps1
+   ```
 
-3. **Start the web client** (in a new terminal):
+4. **Start the React Native client:**
+   ```powershell
+   cd Client
+   npm install
+   npx expo start
+   ```
+
+5. **Start the web client** (in a new terminal):
    ```powershell
    cd ClientWeb
    npm install
@@ -242,3 +286,5 @@ Update `app.json` for:
 ## License
 
 This project is licensed under the MIT License.
+#   S y m p t o m a x  
+ 
